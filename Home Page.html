@@ -1,0 +1,384 @@
+<html><head><base href="https://flowfusion.ai/"><title>Flow Fusion - AI-Powered Workflow Automation</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg-color: #050505;
+        --text-color: #ffffff;
+        --accent-color: #00ffff;
+        --glow-color: rgba(0, 255, 255, 0.8);
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        position: relative;
+        overflow-x: hidden;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+    }
+    header {
+        background-color: rgba(5, 5, 5, 0.8);
+        padding: 20px 0;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+    }
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--text-color);
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+    }
+    .logo::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: var(--accent-color);
+        animation: flowAnimation 3s linear infinite;
+    }
+    .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        margin-left: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+    .hero {
+        padding: 180px 0 100px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        color: var(--text-color);
+        font-weight: 600;
+        text-shadow: 0 0 10px var(--glow-color);
+    }
+    .subtitle {
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+        font-weight: 300;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .cta-button {
+        display: inline-block;
+        background-color: var(--accent-color);
+        color: var(--bg-color);
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    .cta-button:hover {
+        background-color: var(--text-color);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 255, 255, 0.2);
+    }
+    .wave-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        overflow: hidden;
+    }
+    .glow-wave {
+        position: absolute;
+        width: 200%;
+        height: 100%;
+        opacity: 0;
+        animation: waveFlow 20s linear infinite, glowPulse 8s ease-in-out infinite;
+    }
+    .glow-wave svg {
+        width: 100%;
+        height: 100%;
+    }
+    .glow-wave path {
+        fill: none;
+        stroke: var(--glow-color);
+        stroke-width: 2;
+        stroke-linecap: round;
+        filter: drop-shadow(0 0 5px var(--glow-color)) drop-shadow(0 0 10px var(--glow-color));
+    }
+    .glow-wave:nth-child(2) {
+        animation-delay: -6.67s, -2.67s;
+    }
+    .glow-wave:nth-child(3) {
+        animation-delay: -13.33s, -5.33s;
+    }
+    .testimonials {
+        padding: 100px 0;
+        background: rgba(255, 255, 255, 0.03);
+        position: relative;
+    }
+    .testimonials h2 {
+        text-align: center;
+        font-size: 2.5rem;
+        color: var(--accent-color);
+        margin-bottom: 50px;
+    }
+    .testimonial-carousel {
+        position: relative;
+        overflow: hidden;
+    }
+    .testimonial-grid {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+    .testimonial-card {
+        flex: 0 0 calc(33.333% - 40px);
+        margin: 0 20px;
+        background: rgba(255, 255, 255, 0.05);
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        transition: all 0.3s ease;
+    }
+    .testimonial-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 255, 255, 0.2);
+    }
+    .testimonial-video {
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+    .testimonial-content {
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+    .testimonial-author {
+        font-weight: 600;
+        color: var(--accent-color);
+    }
+    .testimonial-company {
+        font-size: 0.9rem;
+        opacity: 0.7;
+    }
+    .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: var(--accent-color);
+        color: var(--bg-color);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+    .carousel-arrow:hover {
+        background: var(--text-color);
+    }
+    .carousel-arrow.left {
+        left: 10px;
+    }
+    .carousel-arrow.right {
+        right: 10px;
+    }
+    @keyframes waveFlow {
+        0% { transform: translateX(0) translateY(0) scale(1); }
+        50% { transform: translateX(-25%) translateY(20px) scale(0.8); }
+        100% { transform: translateX(-50%) translateY(0) scale(1); }
+    }
+    @keyframes glowPulse {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 0.3; }
+    }
+    @keyframes flowAnimation {
+        0% { left: -100%; }
+        100% { left: 100%; }
+    }
+</style>
+</head>
+<body>
+    <div class="wave-bg">
+        <div class="glow-wave">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path d="M0,160 C320,300,420,300,740,160 C1060,20,1120,20,1440,160 V320 H0 Z"></path>
+            </svg>
+        </div>
+        <div class="glow-wave">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path d="M0,160 C320,20,420,20,740,160 C1060,300,1120,300,1440,160 V320 H0 Z"></path>
+            </svg>
+        </div>
+        <div class="glow-wave">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path d="M0,160 C140,200,360,40,740,160 C1120,280,1300,120,1440,160 V320 H0 Z"></path>
+            </svg>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/" class="logo">Flow Fusion</a>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="Services%20Page.html">Services</a>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Unleash the Power of AI in Your Workflow</h1>
+            <p class="subtitle">Flow Fusion combines cutting-edge AI with intuitive automation to streamline your business processes and boost productivity.</p>
+            <a href="/demo" class="cta-button">Request a Demo</a>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>Success Stories</h2>
+            <div class="testimonial-carousel">
+                <div class="carousel-arrow left">&#8249;</div>
+                <div class="carousel-arrow right">&#8250;</div>
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-video">
+                            <img alt="Video testimonial of Andre Haykal Jr., showing him smiling and discussing ListKit's success" src="video-placeholder-1.jpg" width="300" height="169">
+                        </div>
+                        <div class="testimonial-content">
+                            "Flow Fusion added $25,000 MRR to our business in just 2 days! The AI-driven automation has revolutionized our workflow."
+                        </div>
+                        <div class="testimonial-author">Andre Haykal Jr.</div>
+                        <div class="testimonial-company">Founder, ListKit & Client Ascension</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-video">
+                            <img alt="Animated video showing coins and financial growth charts" src="video-placeholder-2.jpg" width="300" height="169">
+                        </div>
+                        <div class="testimonial-content">
+                            "The seamless integration with our existing tools made adoption a breeze. Our team's productivity has skyrocketed!"
+                        </div>
+                        <div class="testimonial-author">Sarah Johnson</div>
+                        <div class="testimonial-company">CEO, TechInnovate Inc.</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-video">
+                            <img alt="Animated video displaying interconnected profile cards and data flow" src="video-placeholder-3.jpg" width="300" height="169">
+                        </div>
+                        <div class="testimonial-content">
+                            "The insights we've gained from Flow Fusion's intelligent analytics have been game-changing for our business strategy."
+                        </div>
+                        <div class="testimonial-author">Michael Chen</div>
+                        <div class="testimonial-company">CTO, DataDrive Solutions</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-video">
+                            <img alt="Video showing a team collaborating in a modern office setting" src="video-placeholder-4.jpg" width="300" height="169">
+                        </div>
+                        <div class="testimonial-content">
+                            "Flow Fusion has transformed how we collaborate. Our team's efficiency has improved by 40% since implementation."
+                        </div>
+                        <div class="testimonial-author">Emily Rodriguez</div>
+                        <div class="testimonial-company">Head of Operations, FutureTech Corp</div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-video">
+                            <img alt="Animated infographic showing improved customer satisfaction metrics" src="video-placeholder-5.jpg" width="300" height="169">
+                        </div>
+                        <div class="testimonial-content">
+                            "Our customer satisfaction scores have increased by 30% thanks to Flow Fusion's AI-powered support automation."
+                        </div>
+                        <div class="testimonial-author">Alex Thompson</div>
+                        <div class="testimonial-company">Customer Success Manager, HappyClients Ltd.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+
+        // Carousel functionality
+        const carousel = document.querySelector('.testimonial-grid');
+        const cards = document.querySelectorAll('.testimonial-card');
+        const cardWidth = cards[0].offsetWidth + 40; // Including margins
+        let currentIndex = 0;
+
+        function moveCarousel(direction) {
+            if (direction === 'next' && currentIndex < cards.length - 3) {
+                currentIndex++;
+            } else if (direction === 'prev' && currentIndex > 0) {
+                currentIndex--;
+            }
+            carousel.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        }
+
+        document.querySelector('.carousel-arrow.left').addEventListener('click', () => moveCarousel('prev'));
+        document.querySelector('.carousel-arrow.right').addEventListener('click', () => moveCarousel('next'));
+    </script>
+</body></html>

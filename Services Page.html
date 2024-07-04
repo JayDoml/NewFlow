@@ -1,0 +1,293 @@
+<html><head><base href="https://flowfusion.ai/services"><title>Flow Fusion - Our Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+    :root {
+        --bg-color: #050505;
+        --text-color: #ffffff;
+        --accent-color: #00ffff;
+        --glow-color: rgba(0, 255, 255, 0.8);
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        position: relative;
+        overflow-x: hidden;
+    }
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+        position: relative;
+        z-index: 2;
+    }
+    header {
+        background-color: rgba(5, 5, 5, 0.8);
+        padding: 20px 0;
+        position: fixed;
+        width: 100%;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+    }
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--text-color);
+        text-decoration: none;
+        position: relative;
+        overflow: hidden;
+    }
+    .logo::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: var(--accent-color);
+        animation: flowAnimation 3s linear infinite;
+    }
+    .nav-links a {
+        color: var(--text-color);
+        text-decoration: none;
+        margin-left: 20px;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+    .hero {
+        padding: 180px 0 100px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        color: var(--text-color);
+        font-weight: 600;
+        text-shadow: 0 0 10px var(--glow-color);
+    }
+    .subtitle {
+        font-size: 1.4rem;
+        margin-bottom: 30px;
+        font-weight: 300;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .wave-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        overflow: hidden;
+    }
+    .glow-wave {
+        position: absolute;
+        width: 200%;
+        height: 100%;
+        opacity: 0;
+        animation: waveFlow 20s linear infinite, glowPulse 8s ease-in-out infinite;
+    }
+    .glow-wave svg {
+        width: 100%;
+        height: 100%;
+    }
+    .glow-wave path {
+        fill: none;
+        stroke: var(--glow-color);
+        stroke-width: 2;
+        stroke-linecap: round;
+        filter: drop-shadow(0 0 5px var(--glow-color)) drop-shadow(0 0 10px var(--glow-color));
+    }
+    .glow-wave:nth-child(2) {
+        animation-delay: -6.67s, -2.67s;
+    }
+    .glow-wave:nth-child(3) {
+        animation-delay: -13.33s, -5.33s;
+    }
+    .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        padding: 80px 0;
+    }
+    .service-card {
+        background-color: rgba(0, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 40px;
+        text-align: center;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 0 30px rgba(0, 255, 255, 0.2);
+    }
+    .service-icon {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        color: var(--accent-color);
+    }
+    h2 {
+        color: var(--accent-color);
+        margin-bottom: 15px;
+        font-size: 1.8rem;
+    }
+    .service-description {
+        margin-bottom: 20px;
+    }
+    .learn-more {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: var(--accent-color);
+        color: var(--bg-color);
+        text-decoration: none;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+    .learn-more:hover {
+        background-color: var(--text-color);
+        color: var(--bg-color);
+    }
+    @keyframes waveFlow {
+        0% { transform: translateX(0) translateY(0) scale(1); }
+        50% { transform: translateX(-25%) translateY(20px) scale(0.8); }
+        100% { transform: translateX(-50%) translateY(0) scale(1); }
+    }
+    @keyframes glowPulse {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 0.3; }
+    }
+    @keyframes flowAnimation {
+        0% { left: -100%; }
+        100% { left: 100%; }
+    }
+</style>
+</head>
+<body>
+    <div class="wave-bg">
+        <div class="glow-wave">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path d="M0,160 C320,300,420,300,740,160 C1060,20,1120,20,1440,160 V320 H0 Z"></path>
+            </svg>
+        </div>
+        <div class="glow-wave">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path d="M0,160 C320,20,420,20,740,160 C1060,300,1120,300,1440,160 V320 H0 Z"></path>
+            </svg>
+        </div>
+        <div class="glow-wave">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path d="M0,160 C140,200,360,40,740,160 C1120,280,1300,120,1440,160 V320 H0 Z"></path>
+            </svg>
+        </div>
+    </div>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="/" class="logo">Flow Fusion</a>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/services">Services</a>
+                    <a href="/about">About</a>
+                    <a href="/contact">Contact</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Our Services</h1>
+            <p class="subtitle">Empowering your business with AI-driven workflow automation and specialized chatbots</p>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🔄</div>
+                    <h2>Workflow Automation</h2>
+                    <p class="service-description">Streamline your business processes with AI-driven workflow automation, reducing manual tasks and increasing efficiency.</p>
+                    <a href="/services/workflow-automation" class="learn-more">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👋</div>
+                    <h2>Onboarding Chatbots</h2>
+                    <p class="service-description">Simplify the onboarding process for new customers or employees with interactive AI-powered chatbots.</p>
+                    <a href="/services/onboarding-chatbots" class="learn-more">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎓</div>
+                    <h2>Training Chatbots</h2>
+                    <p class="service-description">Deliver personalized training experiences and knowledge sharing through intelligent conversational AI.</p>
+                    <a href="/services/training-chatbots" class="learn-more">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h2>Support Chatbots</h2>
+                    <p class="service-description">Provide instant, 24/7 customer support with AI-powered chatbots that can handle queries and troubleshooting.</p>
+                    <a href="/services/support-chatbots" class="learn-more">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h2>Prospecting Chatbots</h2>
+                    <p class="service-description">Engage potential customers and qualify leads with intelligent chatbots designed for sales prospecting.</p>
+                    <a href="/services/prospecting-chatbots" class="learn-more">Learn More</a>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h2>Internal Chatbots</h2>
+                    <p class="service-description">Improve internal communication and knowledge sharing with AI chatbots tailored for your organization's needs.</p>
+                    <a href="/services/internal-chatbots" class="learn-more">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(card);
+        });
+    </script>
+</body></html>
